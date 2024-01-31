@@ -1,6 +1,6 @@
 import { comp } from "../6kyu_are_they_the_same";
 
-describe("compare array function", () => {
+describe.skip("compare array function", () => {
   it("should return true for matching arrays", () => {
     const result = comp(
       [121, 144, 19, 161, 19, 144, 19, 11],

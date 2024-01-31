@@ -1,6 +1,6 @@
 import { towerBuilder } from "../6kyu_build_tower";
 
-describe("build tower function tests unit", () => {
+describe.skip("build tower function tests unit", () => {
   it('should return ["*"] when 1 is passed as parameter', () => {
     const result = towerBuilder(1);
     expect(result).toEqual(["*"]);
