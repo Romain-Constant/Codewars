@@ -1,28 +1,36 @@
 export class GradeSchool {
   private _roster: Record<string, string[]> = {};
-  roster() {
-    // Il est important de retourner une copie profonde de l'objet _roster
-    // pour éviter sa modification en dehors de la classe.
-    return JSON.parse(JSON.stringify(this._roster));
+  roster(): Record<string, string[]> {
+    return this.deepCopy(this._roster);
   }
 
-  add(studentName: string, studentGrade: number) {
-    const grade = studentGrade.toString();
-    if (this._roster.hasOwnProperty(grade)) {
-      if (!this._roster[grade].includes(studentName)) {
-        this._roster[grade].push(studentName);
-        this._roster[grade].sort();
-      }
-    } else {
-      this._roster[grade] = [studentName];
+  add(studentName: string, grade: number): void {
+    const gradeStr = grade.toString();
+
+    this.removeStudentFromAllGrades(studentName);
+
+    if (!this._roster[gradeStr]) {
+      this._roster[gradeStr] = [];
     }
+
+    this._roster[gradeStr].push(studentName);
+    this._roster[gradeStr].sort();
   }
-  grade(grade: number) {
-    const gradeToString = grade.toString();
-    if (!this._roster[gradeToString]) {
-      return [];
-    } else {
-      return this._roster[gradeToString];
-    }
+
+  grade(grade: number): string[] {
+    return this.deepCopy(this._roster[grade.toString()] || []);
+  }
+
+  private removeStudentFromAllGrades(studentName: string): void {
+    Object.values(this._roster).forEach((students) => {
+      const index = students.indexOf(studentName);
+      if (index !== -1) {
+        students.splice(index, 1);
+      }
+    });
+  }
+
+  private deepCopy(object: any): any {
+    return JSON.parse(JSON.stringify(object));
   }
 }
