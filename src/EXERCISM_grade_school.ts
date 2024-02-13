@@ -1,3 +1,5 @@
+//class
+
 export class GradeSchool {
   private _roster: Record<string, string[]> = {};
   roster(): Record<string, string[]> {
