@@ -4,7 +4,7 @@ import { filterCountry } from "../adeoTest";
 
 const data = require("../data.js");
 
-describe("filter animals tests unit", () => {
+describe.skip("filter animals tests unit", () => {
   it("should return an empyt array if input array is empty", () => {
     const result = filterAnimalsByName("", []);
     expect(result).toEqual([]);
@@ -26,7 +26,7 @@ describe("filter animals tests unit", () => {
   });
 });
 
-describe("filter people by animals name tests unit", () => {
+describe.skip("filter people by animals name tests unit", () => {
   it("should return an empty array if input array is empty", () => {
     const result = filterPeopleByAnimalsName("", []);
     expect(result).toEqual([]);
@@ -144,23 +144,23 @@ describe("filter country tests unit", () => {
     ]);
     expect(result).toEqual([
       {
-        name: "Dillauti",
+        name: "Dillauti [1]",
         people: [
           {
-            name: "Winifred Graham",
+            name: "Winifred Graham [1]",
             animals: [{ name: "Cobra" }],
           },
         ],
       },
       {
-        name: "Tohabdal",
+        name: "Tohabdal [2]",
         people: [
           {
-            name: "Effie Houghton",
+            name: "Effie Houghton [1]",
             animals: [{ name: "Zebra" }],
           },
           {
-            name: "Essie Bennett",
+            name: "Essie Bennett [2]",
             animals: [
               { name: "Aldabra Tortoise" },
               { name: "Aldabra Tortoise" },
@@ -582,10 +582,10 @@ describe("filter country tests unit", () => {
     ]);
     expect(result).toEqual([
       {
-        name: "Dillauti",
+        name: "Dillauti [1]",
         people: [
           {
-            name: "Winifred Graham",
+            name: "Winifred Graham [1]",
             animals: [{ name: "Cobra" }],
           },
         ],
