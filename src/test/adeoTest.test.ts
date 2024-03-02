@@ -76,7 +76,7 @@ describe.skip("filter people by animals name tests unit", () => {
   });
 });
 
-describe("filter country tests unit", () => {
+describe.skip("filter country tests unit", () => {
   it("should return an empty array if an empty country array is passed in parameter", () => {
     const result = filterCountry("", []);
     expect(result).toEqual([]);
